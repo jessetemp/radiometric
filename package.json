@@ -1,0 +1,17 @@
+{
+  "name": "radiometric",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "node ./src/index.js",
+    "serve": "py -m http.server 9000 --bind 127.0.0.1 --directory ./dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesse Templin",
+  "license": "MIT",
+  "dependencies": {
+    "nunjucks": "^3.2.3"
+  }
+}
