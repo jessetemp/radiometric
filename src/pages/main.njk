@@ -1,0 +1,44 @@
+{% extends "../index.njk" %}
+
+{% block main %}
+  <div class="timeline">
+  </div>
+  {# <div class="periodic-table">
+  {% for element in elements %}
+    <div class="element">
+      <p>{{element.symbol}}</p>
+      <p>{{element.number}}</p>
+    </div>
+  {% endfor %}
+  </div> #}
+
+    <div class="table">
+    {% for element in elements %}
+    <div class="{{'element '}}
+      {{'nonmetal' if element.category === 'diatomic nonmetal'}}
+      {{'alkali-metal' if element.category === 'alkali metal'}}
+      {{'alkaline-earth' if element.category === 'alkaline earth metal'}}
+      {{'transition-metal' if element.category === 'transition metal'}}
+      {{'post-transition-metal' if element.category === 'post-transition metal'}}
+      {{'noble-gas' if element.category === 'noble gas'}}
+      {{'metalloid' if element.category === 'metalloid'}}
+      {{'polyatomic-nonmetal' if element.category === 'polyatomic nonmetal'}}
+      {{'lanthanide' if element.category === 'lanthanide'}}
+      {{'actinide' if element.category === 'actinide'}}
+      {{'unknown' if element.category.includes('unknown')}}
+      ">
+      <p class="small">{{element.number}}</p>
+      <h3>{{element.symbol}}</h3>
+      <p class="smaller">{{element.name}}</p>
+      <!-- <p class="smaller">{{element.category}}</p> -->
+      <p class="smaller">{{element.atomic_mass.toFixed(3)}}</p>
+    </div>
+    {% endfor %}
+    <div class="spacer-a"></div>
+    <div class="spacer-b"></div>
+    <div class="element lanthanides"></div>
+    <div class="element actinides"></div>
+    <div class="spacer-c"></div>
+  </div>
+
+{% endblock %}
