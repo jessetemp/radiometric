@@ -1,0 +1,27 @@
+#timeline {
+  margin-bottom: 2rem;
+}
+
+#timeline line {
+  stroke: #bbb;
+}
+
+#timeline text {
+  color: #bbb;
+  font-family:  sans-serif;
+  font-size: 0.8rem;
+}
+
+#timeline rect {
+  opacity: 60%;
+  transition: opacity 300ms ease;
+}
+
+#timeline rect:hover {
+  opacity: 100%;
+  transition: opacity 50ms ease;
+}
+
+#timeline .super {
+  font-size: 80%;
+}

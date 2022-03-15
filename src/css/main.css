@@ -1,4 +1,5 @@
 @import url("sanitize.css");
+@import url("timeline.css");
 
 @font-face {
   font-family: 'Merriweather';
@@ -26,6 +27,11 @@ h4, h5, h6, p, li, td {
 
 header h1, header h2, header h3, header h4, header h5, header h6, header p, header li {
   color: var(--near-white)
+}
+
+.page h2 {
+  color: var(--light-grey);
+  text-align: center;
 }
 
 h1 {
@@ -159,48 +165,59 @@ footer {
 
 .nonmetal {
   background-color: #6694ff;
+  stop-color: #6694ff;
 }
 
 .alkali-metal {
   background-color: #ff8e6c;
+  stop-color: #ff8e6c;
 }
 
 .alkaline-earth {
   background-color: #ffc46c;
+  stop-color: #ffc46c;
 }
 
 .transition-metal{
   background-color: #ffef6c;
+  stop-color: #ffef6c;
 }
 
 .post-transition-metal {
   background-color: #d0ff68;
+  stop-color: #d0ff68;
 }
 
 .polyatomic-nonmetal {
   background-color: #7ad3ff;
+  stop-color: #7ad3ff;
 }
 
 .metalloid {
   background-color: #8fffa0;
+  stop-color: #8fffa0;
 }
 
 .noble-gas {
   background-color: #ac9aff;
+  stop-color: #ac9aff;
 }
 
 .unknown {
   background-color: #efefef;
+  stop-color: #efefef;
 }
 
-.lanthanides {
+.lanthanide {
   grid-area: l;
   background-color: #ffbce9;
+  stop-color: #ffbce9;
 }
 
-.actinides {
+.actinide {
   grid-area: a;
   background-color: #ff79cc;
+  stop-color: #ff79cc;
 }
 
 .element:nth-child(n + 57):nth-child(-n + 71) {
