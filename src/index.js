@@ -1,5 +1,6 @@
 import nunjucks from 'nunjucks'
 import fs from 'fs'
+import * as timeline from './scripts/timeline.js'
 
 const ELEMENTS = JSON.parse(fs.readFileSync('./src/data/PeriodicTableJSON.json')).elements
 const YEAR = new Date().getFullYear()
@@ -56,6 +57,7 @@ function create404() {
 function createMain() {
   let render = nunjucks.render(`./src/pages/main.njk`, {
     elements: ELEMENTS,
+    tl: timeline,
     year: YEAR
   })
 
