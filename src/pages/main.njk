@@ -40,17 +40,18 @@
   <div class="table">
     {% for element in elements %}
       <div class="{{'element '}}
-        {{'nonmetal' if element.category === 'diatomic nonmetal'}}
-        {{'alkali-metal' if element.category === 'alkali metal'}}
-        {{'alkaline-earth' if element.category === 'alkaline earth metal'}}
-        {{'transition-metal' if element.category === 'transition metal'}}
-        {{'post-transition-metal' if element.category === 'post-transition metal'}}
-        {{'noble-gas' if element.category === 'noble gas'}}
-        {{'metalloid' if element.category === 'metalloid'}}
-        {{'polyatomic-nonmetal' if element.category === 'polyatomic nonmetal'}}
-        {{'lanthanide' if element.category === 'lanthanides'}}
-        {{'actinide' if element.category === 'actinides'}}
-        {{'unknown' if element.category.includes('unknown')}}
+        {{ element.name.toLowerCase() }}
+        {{' nonmetal' if element.category === 'diatomic nonmetal'}}
+        {{' alkali-metal' if element.category === 'alkali metal'}}
+        {{' alkaline-earth' if element.category === 'alkaline earth metal'}}
+        {{' transition-metal' if element.category === 'transition metal'}}
+        {{' post-transition-metal' if element.category === 'post-transition metal'}}
+        {{' noble-gas' if element.category === 'noble gas'}}
+        {{' metalloid' if element.category === 'metalloid'}}
+        {{' polyatomic-nonmetal' if element.category === 'polyatomic nonmetal'}}
+        {{' lanthanide' if element.category === 'lanthanides'}}
+        {{' actinide' if element.category === 'actinides'}}
+        {{' unknown' if element.category.includes('unknown')}}
         ">
         <p class="small">{{element.number}}</p>
         <h3>{{element.symbol}}</h3>
