@@ -2,36 +2,49 @@
 
 {% block main %}
   <div id="timeline">
-    <svg viewBox="0,0,{{tl.svgWidth}},{{tl.svgHeight}}">
+    <svg viewBox="0,0,{{t.svgWidth}},{{t.svgHeight}}">
       <defs>
-        {% for method in tl.methods %}
+        {% for method in t.methods %}
           <linearGradient id="{{method.name}}">
-            <stop class="{{method.toClass}}" offset="0%" />
-            <stop class="{{method.fromClass}}" offset="100%" />
+            <stop class="{{method.fromClass}} {{method.fromElement}}" offset="25%" />
+            <stop class="{{method.toClass}} {{methos.toElement}}" offset="75%" />
           </linearGradient>
         {% endfor %}
       </defs>
       <g>
-        <line x1="{{tl.svgPad}}" y1="{{tl.svgHeight - tl.svgTicTop}}"
-          x2="{{tl.svgWidth - tl.svgPad}}"
-          y2="{{tl.svgHeight - tl.svgTicTop}}" />
-        {% for tic in tl.tics %}
-          <line x1="{{tic}}" y1="{{tl.svgHeight - tl.svgTicTop}}"
-            x2="{{tic}}" y2="{{tl.svgHeight - tl.svgTicBottom}}" />
+        <line x1="{{t.svgPad}}" y1="{{t.svgHeight - t.svgTicTop}}"
+          x2="{{t.svgWidth - t.svgPad}}"
+          y2="{{t.svgHeight - t.svgTicTop}}" />
+        {% for tic in t.tics %}
+          <line x1="{{tic}}" y1="{{t.svgHeight - t.svgTicTop}}"
+            x2="{{tic}}" y2="{{t.svgHeight - t.svgTicBottom}}" />
         {% endfor %}
       </g>
       <g>
-        {% for tic in tl.tics %}
-          <text x="{{tic - 10}}" y="{{tl.svgHeight - 4}}">
-            10<tspan class="super" dy="-5">{{tl.bins - loop.index0}}</tspan>
+        {% for tic in t.tics %}
+          <text x="{{tic - 10}}" y="{{t.svgHeight - 4}}" class="axis">
+            10<tspan class="super" dy="-5">{{t.bins - loop.index0}}</tspan>
           </text>
         {% endfor %}
       </g>
       <g>
-        {% for method in tl.methods %}
-          <rect x="{{method.x}}" y="{{18 * loop.index0}}"
-            width="{{2*(tl.svgWidth - 2*tl.svgPad)/tl.svgPad}}" height="14"
-            rx="9" fill="url(#{{method.name}})" />
+        {% for method in t.methods %}
+          <g class="range">
+            <rect x="{{method.x}}" y="{{18 * loop.index0}}" 
+              width="{{2*(t.svgWidth - 2*t.svgPad)/t.svgPad}}" height="14"
+              rx="9" fill="url(#{{method.name}})"
+              class="{{method.fromElement.toLowerCase()}} {{method.toElement.toLowerCase()}}" />
+            <text x="{{method.x + 12}}" y="{{18 * loop.index0 + 11}}" class ="label">
+              {{ method.fromSymbol }}
+            </text>
+            <text x="{{method.x/2 + 34}}" y="{{18 * loop.index0 + 11}}" class ="arrow"
+              transform="scale(2, 1)">
+              &rarr;
+            </text>
+            <text x="{{method.x + 142}}" y="{{18 * loop.index0 + 11}}" class ="label">
+              {{ method.toSymbol }}
+            </text>
+          </g>
         {% endfor %}
       </g>
     </svg>

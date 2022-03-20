@@ -34,7 +34,7 @@
   padding: 3px;
   border-radius: 4px;
   border: 0px black solid;
-  opacity: 70%;
+  opacity: 65%;
   transition: opacity 300ms ease;
 }
 
@@ -126,19 +126,4 @@
 
 .element:nth-child(n + 89):nth-child(-n + 103) {
   grid-row: 10;
-}
-
-/* .element {
-  text-align: center;
-  counter-increment: el;
-  padding: 3px;
-  border-radius: 4px;
-  border: 0px black solid;
-  opacity: 70%;
-  transition: opacity 300ms ease;
-} */
-
-.carbon:hover {
-  opacity: 100%;
-  transition: opacity 50ms ease;
 }

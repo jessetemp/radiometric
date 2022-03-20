@@ -6,27 +6,119 @@ export const svgTicBottom = 18
 export const bins = 12
 
 class Radiometric {
-  constructor(name, halflife, fromClass, toClass){
-    this.name = name
+  constructor(halflife, fromElement, fromSymbol, fromClass, toElement, toSymbol, toClass){
     this.halflife = halflife
+    this.fromElement = fromElement
+    this.fromSymbol = fromSymbol
     this.fromClass = fromClass
+    this.toElement = toElement
+    this.toSymbol = toSymbol
     this.toClass = toClass
+    this.name = `${fromElement}-${toElement}`
     this.x = svgWidth - svgPad - Math.log10(halflife)*(svgWidth - 2*svgPad)/svgPad
   }
 }
 
 export const methods = [
-  new Radiometric("rubidium-strontium", 5e11, "alkali-metal", "alkaline-earth"),
-  new Radiometric("samarium-neodymium", 1.1e11, "lanthanide", "lanthanide"),
-  new Radiometric("lutetium-hafnium", 3.7e10, "lanthanide", "transition-metal"),
-  new Radiometric("uranium-lead", 4.5e9, "actinide",  "post-transition-metal"),
-  new Radiometric("potassium-argon", 1.3e9, "alkali-metal", "noble-gas"),
-  new Radiometric("uranium-lead", 7e8, "actinide",  "post-transition-metal"),
-  new Radiometric("hafnium-tungsten", 8.9e6, "transition-metal", "transition-metal"),
-  new Radiometric("iodine-xenon", 1.6e6, "nonmetal", "noble-gas"),
-  new Radiometric("uranium-thorium", 8e4, "actinide", "actinide"),
-  new Radiometric("uranium-protactinium", 3.3e4, "actinide", "actinide"),
-  new Radiometric("carbon-nitrogen", 5730, "polyatomic-nonmetal", "nonmetal"),
+  new Radiometric(
+    5e11,
+    "rubidium",
+    "Rb",
+    "alkali-metal",
+    "strontium",
+    "Sr",
+    "alkaline-earth",
+    ),
+  new Radiometric(
+    1.1e11,
+    "samarium",
+    "Sm",
+    "lanthanide",
+    "neodymium",
+    "Nd",
+    "lanthanide",
+    ),
+  new Radiometric(
+    3.7e10,
+    "lutetium",
+    "Lu",
+    "lanthanide",
+    "hafnium",
+    "Ha",
+    "transition-metal",
+    ),
+  new Radiometric(
+    4.5e9,
+    "uranium",
+    "U",
+    "actinide",
+    "lead",
+    "Pb",
+    "post-transition-metal",
+    ),
+  new Radiometric(
+    1.3e9,
+    "potassium",
+    "K",
+    "alkali-metal",
+    "argon",
+    "Ar",
+    "noble-gas",
+    ),
+  new Radiometric(
+    7e8,
+    "uranium",
+    "U",
+    "actinide", 
+    "lead",
+    "Pb",
+    "post-transition-metal",
+    ),
+  new Radiometric(
+    8.9e6,
+    "hafnium",
+    "Hf",
+    "transition-metal",
+    "tungsten",
+    "W",
+    "transition-metal",
+    ),
+  new Radiometric(
+    1.6e6,
+    "iodine",
+    "I",
+    "nonmetal",
+    "xenon",
+    "Xe",
+    "noble-gas",
+    ),
+  new Radiometric(
+    8e4,
+    "uranium",
+    "U",
+    "actinide",
+    "thorium",
+    "Th",
+    "actinide",
+    ),
+  new Radiometric(
+    3.3e4,
+    "uranium",
+    "U",
+    "actinide",
+    "protactinium",
+    "Pa",
+    "actinide",
+    ),
+  new Radiometric(
+    5730,
+    "carbon",
+    "C",
+    "polyatomic-nonmetal",
+    "nitrogen",
+    "N",
+    "nonmetal",
+    ),
 ]
 
 export const tics = [...Array(bins + 1).keys()]
