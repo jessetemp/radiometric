@@ -1,43 +1,82 @@
 {% extends "../index.njk" %}
 
 {% block main %}
-  <div class="timeline">
+  <div id="timeline">
+    <svg viewBox="0,0,{{t.svgWidth}},{{t.svgHeight}}">
+      <defs>
+        {% for method in t.methods %}
+          <linearGradient id="{{method.name}}">
+            <stop class="{{method.fromClass}} {{method.fromElement}}" offset="25%" />
+            <stop class="{{method.toClass}} {{methos.toElement}}" offset="75%" />
+          </linearGradient>
+        {% endfor %}
+      </defs>
+      <g>
+        <line x1="{{t.svgPad}}" y1="{{t.svgHeight - t.svgTicTop}}"
+          x2="{{t.svgWidth - t.svgPad}}"
+          y2="{{t.svgHeight - t.svgTicTop}}" />
+        {% for tic in t.tics %}
+          <line x1="{{tic}}" y1="{{t.svgHeight - t.svgTicTop}}"
+            x2="{{tic}}" y2="{{t.svgHeight - t.svgTicBottom}}" />
+        {% endfor %}
+      </g>
+      <g>
+        {% for tic in t.tics %}
+          <text x="{{tic - 10}}" y="{{t.svgHeight - 4}}" class="axis">
+            10<tspan class="super" dy="-5">{{t.bins - loop.index0}}</tspan>
+          </text>
+        {% endfor %}
+      </g>
+      <g>
+        {% for method in t.methods %}
+          <g class="range">
+            <rect x="{{method.x}}" y="{{18 * loop.index0}}" 
+              width="{{2*(t.svgWidth - 2*t.svgPad)/t.svgPad}}" height="14"
+              rx="9" fill="url(#{{method.name}})"
+              class="{{method.fromElement.toLowerCase()}} {{method.toElement.toLowerCase()}}" />
+            <text x="{{method.x + 12}}" y="{{18 * loop.index0 + 11}}" class ="label">
+              {{ method.fromSymbol }}
+            </text>
+            <text x="{{method.x/2 + 34}}" y="{{18 * loop.index0 + 11}}" class ="arrow"
+              transform="scale(2, 1)">
+              &rarr;
+            </text>
+            <text x="{{method.x + 142}}" y="{{18 * loop.index0 + 11}}" class ="label">
+              {{ method.toSymbol }}
+            </text>
+          </g>
+        {% endfor %}
+      </g>
+    </svg>
   </div>
-  {# <div class="periodic-table">
-  {% for element in elements %}
-    <div class="element">
-      <p>{{element.symbol}}</p>
-      <p>{{element.number}}</p>
-    </div>
-  {% endfor %}
-  </div> #}
 
-    <div class="table">
+  <div class="table">
     {% for element in elements %}
-    <div class="{{'element '}}
-      {{'nonmetal' if element.category === 'diatomic nonmetal'}}
-      {{'alkali-metal' if element.category === 'alkali metal'}}
-      {{'alkaline-earth' if element.category === 'alkaline earth metal'}}
-      {{'transition-metal' if element.category === 'transition metal'}}
-      {{'post-transition-metal' if element.category === 'post-transition metal'}}
-      {{'noble-gas' if element.category === 'noble gas'}}
-      {{'metalloid' if element.category === 'metalloid'}}
-      {{'polyatomic-nonmetal' if element.category === 'polyatomic nonmetal'}}
-      {{'lanthanide' if element.category === 'lanthanide'}}
-      {{'actinide' if element.category === 'actinide'}}
-      {{'unknown' if element.category.includes('unknown')}}
-      ">
-      <p class="small">{{element.number}}</p>
-      <h3>{{element.symbol}}</h3>
-      <p class="smaller">{{element.name}}</p>
-      <!-- <p class="smaller">{{element.category}}</p> -->
-      <p class="smaller">{{element.atomic_mass.toFixed(3)}}</p>
-    </div>
+      <div class="{{'element '}}
+        {{ element.name.toLowerCase() }}
+        {{' nonmetal' if element.category === 'diatomic nonmetal'}}
+        {{' alkali-metal' if element.category === 'alkali metal'}}
+        {{' alkaline-earth' if element.category === 'alkaline earth metal'}}
+        {{' transition-metal' if element.category === 'transition metal'}}
+        {{' post-transition-metal' if element.category === 'post-transition metal'}}
+        {{' noble-gas' if element.category === 'noble gas'}}
+        {{' metalloid' if element.category === 'metalloid'}}
+        {{' polyatomic-nonmetal' if element.category === 'polyatomic nonmetal'}}
+        {{' lanthanide' if element.category === 'lanthanides'}}
+        {{' actinide' if element.category === 'actinides'}}
+        {{' unknown' if element.category.includes('unknown')}}
+        ">
+        <p class="small">{{element.number}}</p>
+        <h3>{{element.symbol}}</h3>
+        <p class="smaller">{{element.name}}</p>
+        <!-- <p class="smaller">{{element.category}}</p> -->
+        <p class="smaller">{{element.atomic_mass.toFixed(3)}}</p>
+      </div>
     {% endfor %}
     <div class="spacer-a"></div>
     <div class="spacer-b"></div>
-    <div class="element lanthanides"></div>
-    <div class="element actinides"></div>
+    <div class="element lanthanide"></div>
+    <div class="element actinide"></div>
     <div class="spacer-c"></div>
   </div>
 

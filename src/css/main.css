@@ -1,4 +1,6 @@
 @import url("sanitize.css");
+@import url("timeline.css");
+@import url("elements.css");
 
 @font-face {
   font-family: 'Merriweather';
@@ -28,6 +30,11 @@ header h1, header h2, header h3, header h4, header h5, header h6, header p, head
   color: var(--near-white)
 }
 
+.page h2 {
+  color: var(--light-grey);
+  text-align: center;
+}
+
 h1 {
   display: inline-block;
   color: var(--near-white);
@@ -36,30 +43,8 @@ h1 {
   margin: 0;
 }
 
-.table h3 {
-  line-height: 1;
-  display: inline-block;
-  padding: 0;
-}
-
-.table h3, .table p {
-  /* opacity: 30%; */
-  white-space: nowrap;
-  margin: 0;
-}
-
-footer p {
-  color: var(--light-grey);
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-}
-
 a {
   text-decoration: none;
-}
-
-footer a {
-  color: var(--light-grey);
 }
 
 a:hover, a:active {
@@ -96,11 +81,23 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 1200px;
+  margin: 2rem auto;
 }
 
 footer {
   grid-area: f;
+  display: flex;
   justify-self: center;
+  width: 100%;
+  background-color: var(--near-black);
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer p, footer a {
+  color: var(--light-grey);
+  margin: 0.3rem auto;
 }
 
 .small {
@@ -113,108 +110,3 @@ footer {
   font-size: 40%;
 }
 
-.table {
- display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  grid-template-areas:
-      ' . sa sa sa sa sa sa sa sa sa sa sa sa sa sa sa sa  .'
-      ' .  . sb sb sb sb sb sb sb sb sb sb  .  .  .  .  .  .'
-      ' .  . sb sb sb sb sb sb sb sb sb sb  .  .  .  .  .  .'
-      ' .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
-      ' .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
-      ' .  .  l  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
-      ' .  .  a  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
-      ' .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
-      'sc sc  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
-      'sc sc  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .';
-      gap: 4px;
-}
-
-.element {
-  text-align: center;
-  counter-increment: el;
-  padding: 3px;
-  border-radius: 4px;
-  border: 0px black solid;
-  opacity: 60%;
-  transition: opacity 300ms ease;
-}
-
-.element:hover {
-  opacity: 100%;
-  transition: opacity 50ms ease;
-}
-
-.spacer-a {
-  grid-area: sa;
-}
-
-.spacer-b {
-  grid-area: sb;
-}
-
-.spacer-c {
-  grid-area: sc;
-}
-
-.nonmetal {
-  background-color: #6694ff;
-}
-
-.alkali-metal {
-  background-color: #ff8e6c;
-}
-
-.alkaline-earth {
-  background-color: #ffc46c;
-}
-
-.transition-metal{
-  background-color: #ffef6c;
-}
-
-.post-transition-metal {
-  background-color: #d0ff68;
-}
-
-.polyatomic-nonmetal {
-  background-color: #7ad3ff;
-}
-
-.metalloid {
-  background-color: #8fffa0;
-}
-
-.noble-gas {
-  background-color: #ac9aff;
-}
-
-.unknown {
-  background-color: #efefef;
-}
-
-.lanthanides {
-  grid-area: l;
-  background-color: #ffbce9;
-}
-
-.actinides {
-  grid-area: a;
-  background-color: #ff79cc;
-}
-
-.element:nth-child(n + 57):nth-child(-n + 71) {
- background-color: #ffbce9;
-}
-
-.element:nth-child(n + 57):nth-child(-n + 71) {
-  grid-row: 9;
-}
-
-.element:nth-child(n + 89):nth-child(-n + 103) {
- background-color: #ff79cc;
-}
-
-.element:nth-child(n + 89):nth-child(-n + 103) {
-  grid-row: 10;
-}

@@ -1,0 +1,45 @@
+#timeline {
+  margin-bottom: 2rem;
+}
+
+#timeline line {
+  stroke: #bbb;
+}
+
+#timeline .axis {
+  color: #bbb;
+  font-family:  sans-serif;
+  font-size: 0.8rem;
+}
+
+#timeline .label, #timeline .arrow {
+  color: #111;
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 0.7rem;
+}
+
+#timeline .arrow {
+  font-size: 1rem;
+}
+
+#timeline .range {
+  opacity: 65%;
+  /* transition: opacity 1s ease; */
+  transition: opacity 300ms ease;
+}
+
+#timeline .range:hover {
+  opacity: 100%;
+  /* transition: opacity 500ms ease; */
+  transition: opacity 50ms ease;
+}
+
+#timeline .super {
+  font-size: 80%;
+}
+
+#timeline rect {
+  mix-blend-mode: hard-light;
+  isolation: isolate;
+}
