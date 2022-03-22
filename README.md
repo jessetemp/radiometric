@@ -1,11 +1,19 @@
 # Radiometric
 
 ## TODO:
-- [x] Add radiometric examples from Wikipedia. Start and end ranges are approximated to order of magnitude from half-life
-- [ ] Sync hover highlighting between table and timeline
+- [x] Add radiometric examples from Wikipedia. Start and end ranges are approximated to one order of magnitude from half-life
+- [ ] ~~Sync hover highlighting between table and timeline~~ Looks unintuitive because Uranium is so common
 - [ ] **Get user feedback**
 - [ ] Use SASS (or other CSS compiler)
+- [ ] Add color [noise](https://stackoverflow.com/questions/4011113/can-you-add-noise-to-a-css3-gradient)
+- [ ] Add CRT frame effect
 
 ## NEXT:
-* Compound game
-* Word game
+Radiometric game
+- [ ] Make timer
+- [ ] Store clicked elements
+
+Compound game
+- [ ] Find compound data source
+
+Word game
