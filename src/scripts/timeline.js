@@ -1,7 +1,7 @@
 export const svgWidth = 1024
-export const svgHeight = 224
+export const svgHeight = 230
 export const svgPad = 12
-export const svgTicTop = 26
+export const svgTicTop = 25
 export const svgTicBottom = 18
 export const bins = 12
 
@@ -15,20 +15,12 @@ class Radiometric {
     this.toSymbol = toSymbol
     this.toClass = toClass
     this.name = `${fromElement}-${toElement}`
-    this.x = svgWidth - svgPad - Math.log10(halflife)*(svgWidth - 2*svgPad)/svgPad
+    this.width = 2*(svgWidth - 2*svgPad)/bins
+    this.x = svgWidth - svgPad - Math.log10(halflife)*(svgWidth - 2*svgPad)/bins - this.width/2
   }
 }
 
 export const methods = [
-  new Radiometric(
-    5e11,
-    "rubidium",
-    "Rb",
-    "alkali-metal",
-    "strontium",
-    "Sr",
-    "alkaline-earth",
-    ),
   new Radiometric(
     1.1e11,
     "samarium",
@@ -37,6 +29,15 @@ export const methods = [
     "neodymium",
     "Nd",
     "lanthanide",
+    ),
+  new Radiometric(
+    5e10,
+    "rubidium",
+    "Rb",
+    "alkali-metal",
+    "strontium",
+    "Sr",
+    "alkaline-earth",
     ),
   new Radiometric(
     3.7e10,
@@ -75,6 +76,15 @@ export const methods = [
     "post-transition-metal",
     ),
   new Radiometric(
+    1.6e7,
+    "iodine",
+    "I",
+    "nonmetal",
+    "xenon",
+    "Xe",
+    "noble-gas",
+    ),
+  new Radiometric(
     8.9e6,
     "hafnium",
     "Hf",
@@ -84,13 +94,13 @@ export const methods = [
     "transition-metal",
     ),
   new Radiometric(
-    1.6e6,
-    "iodine",
-    "I",
-    "nonmetal",
-    "xenon",
-    "Xe",
-    "noble-gas",
+    2.5e5,
+    "uranium",
+    "U",
+    "actinide",
+    "uranium",
+    "U",
+    "actinide",
     ),
   new Radiometric(
     8e4,
