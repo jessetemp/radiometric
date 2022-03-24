@@ -81,7 +81,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 2rem auto;
 }
 
