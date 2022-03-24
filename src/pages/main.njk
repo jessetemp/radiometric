@@ -30,18 +30,18 @@
       <g>
         {% for method in t.methods %}
           <g class="range">
-            <rect x="{{method.x}}" y="{{18 * loop.index0}}" 
-              width="{{2*(t.svgWidth - 2*t.svgPad)/t.svgPad}}" height="14"
+            <rect x="{{method.x}}" y="{{17 * loop.index0}}" 
+              width="{{method.width}}" height="14"
               rx="9" fill="url(#{{method.name}})"
               class="{{method.fromElement.toLowerCase()}} {{method.toElement.toLowerCase()}}" />
-            <text x="{{method.x + 12}}" y="{{18 * loop.index0 + 11}}" class ="label">
+            <text x="{{method.x + 12}}" y="{{17 * loop.index0 + 11}}" class ="label">
               {{ method.fromSymbol }}
             </text>
-            <text x="{{method.x/2 + 34}}" y="{{18 * loop.index0 + 11}}" class ="arrow"
+            <text x="{{method.x/2 + 30}}" y="{{17 * loop.index0 + 11}}" class ="arrow"
               transform="scale(2, 1)">
               &rarr;
             </text>
-            <text x="{{method.x + 142}}" y="{{18 * loop.index0 + 11}}" class ="label">
+            <text x="{{method.x + 130}}" y="{{17 * loop.index0 + 11}}" class ="label">
               {{ method.toSymbol }}
             </text>
           </g>
