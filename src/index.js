@@ -13,6 +13,7 @@ copyFolderContents('css')
 copyFolderContents('fonts')
 // copyFolderContents('scripts')
 copyFile("favicon.ico")
+copyFile("unlicense.svg")
 
 
 function clean() {
