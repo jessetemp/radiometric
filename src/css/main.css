@@ -82,31 +82,30 @@ main {
   flex-direction: column;
   justify-content: center;
   max-width: 1400px;
-  margin: 2rem auto;
+  padding: 2rem 0;
+  margin: 0 auto;
+  background-color: var(--dark-grey);
 }
 
 footer {
   grid-area: f;
-  display: flex;
   justify-self: center;
   width: 100%;
   background-color: var(--near-black);
+}
+
+footer div {
+  display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 footer p, footer a {
   color: var(--light-grey);
-  margin: 0.3rem auto;
+  margin: 0;
 }
 
-.small {
-  font-size: 60%;
-  text-align: left;
-  line-height: 1;
+footer img {
+  height: 1rem;
+  padding: 0 0.4rem;
 }
-
-.smaller {
-  font-size: 40%;
-}
-

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 196 196" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <circle id="circle-border" cx="98" cy="98" r="98" fill="#bbb"/>
+  <circle id="circle-inside" cx="98" cy="98" r="80" fill="#191919" stroke-width="1.0256"/>
+  <circle id="c-border" cx="98" cy="98" r="55" fill="#bbb"/>
+ </g>
+ <g fill="#191919">
+  <rect id="bar-margin" transform="rotate(45,0,174) translate(0,-10)" width="31" height="123"/>
+  <rect id="c-cut" x="124" y="85" width="31" height="25"/>
+  <circle id="c-inside" cx="98" cy="98" r="36" stroke-width="1.2"/>
+ </g>
+ <rect id="bar" transform="rotate(45)" x="128.73" y="-86.303" width="19.726" height="172.61" fill="#bbb" stroke-width=".8822"/>
+</svg>
