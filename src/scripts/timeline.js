@@ -1,4 +1,4 @@
-export const svgWidth = 1024
+export const svgWidth = 1240
 export const svgHeight = 302
 export const svgPad = 12
 export const svgTicTop = 25
@@ -19,6 +19,9 @@ class Radiometric {
     this.height = 19
     this.space = 23
     this.radius = 12
+    this.leftOffset = svgWidth*0.01171875 // 12
+    this.arrowOffset = svgWidth*0.03125 // 32
+    this.rightOffset = svgWidth*0.1328125 // 136
     this.x = svgWidth - svgPad - Math.log10(halflife)*(svgWidth - 2*svgPad)/bins - this.width/2
   }
 }
