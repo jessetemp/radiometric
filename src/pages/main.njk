@@ -22,7 +22,7 @@
       </g>
       <g>
         {% for tic in t.tics %}
-          <text x="{{tic - 10}}" y="{{t.svgHeight - 4}}" class="axis">
+          <text x="{{tic - 13}}" y="{{t.svgHeight - 2}}" class="axis">
             10<tspan class="super" dy="-5">{{t.bins - loop.index0}}</tspan>
           </text>
         {% endfor %}
@@ -30,18 +30,18 @@
       <g>
         {% for method in t.methods %}
           <g class="range">
-            <rect x="{{method.x}}" y="{{17 * loop.index0}}" 
-              width="{{method.width}}" height="14"
-              rx="9" fill="url(#{{method.name}})"
+            <rect x="{{method.x}}" y="{{method.space * loop.index0}}" 
+              width="{{method.width}}" height="{{method.height}}"
+              rx="{{method.radius}}" fill="url(#{{method.name}})"
               class="{{method.fromElement.toLowerCase()}} {{method.toElement.toLowerCase()}}" />
-            <text x="{{method.x + 12}}" y="{{17 * loop.index0 + 11}}" class ="label">
+            <text x="{{method.x + method.leftOffset}}" y="{{method.space * loop.index0 + 15}}" class ="label">
               {{ method.fromSymbol }}
             </text>
-            <text x="{{method.x/2 + 32}}" y="{{17 * loop.index0 + 11}}" class ="arrow"
+            <text x="{{method.x/2 + method.arrowOffset}}" y="{{method.space * loop.index0 + 15}}" class ="arrow"
               transform="scale(2, 1)">
               &rarr;
             </text>
-            <text x="{{method.x + 136}}" y="{{17 * loop.index0 + 11}}" class ="label">
+            <text x="{{method.x + method.rightOffset}}" y="{{method.space * loop.index0 + 15}}" class ="label">
               {{ method.toSymbol }}
             </text>
           </g>
@@ -66,11 +66,11 @@
         {{' actinide' if element.category === 'actinides'}}
         {{' unknown' if element.category.includes('unknown')}}
         ">
-        <p class="small">{{element.number}}</p>
-        <h3>{{element.symbol}}</h3>
-        <p class="smaller">{{element.name}}</p>
-        <!-- <p class="smaller">{{element.category}}</p> -->
-        <p class="smaller">{{element.atomic_mass.toFixed(3)}}</p>
+        <p class="element-number">{{element.number}}</p>
+        <h3 class="element-symbol">{{element.symbol}}</h3>
+        <p class="element-name">{{element.name}}</p>
+        {# <p class="element-category">{{element.category}}</p> #}
+        <p class="atomic-mass">{{element.atomic_mass.toFixed(2)}}</p>
       </div>
     {% endfor %}
     <div class="spacer-a"></div>
