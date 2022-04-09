@@ -59,7 +59,7 @@ body {
       " f    f    f"   auto
       / 1fr  20fr 1fr;
   min-height: 100vh;
-  min-width: 480px;
+  min-width: 400px;
   justify-content: center;
   background-color: var(--dark-grey);
   opacity: 100%;
@@ -81,7 +81,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1400px;
+  max-width: 1200px;
   padding: 2rem 0;
   margin: 0 auto;
   background-color: var(--dark-grey);
@@ -107,5 +107,5 @@ footer p, footer a {
 
 footer img {
   height: 1rem;
-  padding: 0 0.4rem;
+  padding: 0 0.5rem;
 }

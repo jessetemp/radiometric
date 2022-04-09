@@ -12,19 +12,19 @@
     ' .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
     'sc sc  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
     'sc sc  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .';
-  gap: 4px;
+  gap: clamp(2px, 0.4vw, 5px);
  }
 
  .element {
    text-align: center;
    counter-increment: el;
-   padding: 3px;
+   padding: clamp(2px, 0.3vw, 4px);
    border-radius: 4px;
    border: 0px black solid;
    opacity: 80%;
    transition: opacity 300ms ease;
-   height: clamp(2.8rem, 6vw, 5rem);
-   width: clamp(21px, 4.6vw, 5rem);
+   height: clamp(2.8rem, 6vw, 4.6rem);
+   width: clamp(20px, 4.7vw, 62px);
  }
 
  .element:hover {
@@ -41,18 +41,18 @@
   line-height: 1;
   display: inline-block;
   padding: 0;
-  font-size: clamp(0.4rem, 1.8vw, 1.5rem);
+  font-size: clamp(0.4rem, 2vw, 1.5rem);
 }
 
 .element-number {
   font-size: clamp(0.35rem, 0.8vw, 0.7rem);
   text-align: left;
   line-height: 1;
-  padding-bottom: clamp(0px, 0.5vw, 8px);
+  padding-bottom: clamp(0px, 0.5vw, 4px);
 }
 
 .element-name, .atomic-mass {
-  font-size: clamp(0.25rem, 0.6vw, 0.6rem);
+  font-size: clamp(0.25rem, 0.6vw, 0.5rem);
 }
 
 .element-name {
