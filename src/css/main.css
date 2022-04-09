@@ -59,7 +59,7 @@ body {
       " f    f    f"   auto
       / 1fr  20fr 1fr;
   min-height: 100vh;
-  min-width: 480px;
+  min-width: 400px;
   justify-content: center;
   background-color: var(--dark-grey);
   opacity: 100%;
