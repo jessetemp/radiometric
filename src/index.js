@@ -6,14 +6,11 @@ const ELEMENTS = JSON.parse(fs.readFileSync('./src/data/PeriodicTableJSON.json')
 const YEAR = new Date().getFullYear()
 
 clean()
-createFolder("./dist")
+createFolder("./dist/css")
 createMain()
 create404()
-copyFolderContents('css')
 copyFolderContents('fonts')
-// copyFolderContents('scripts')
 copyFile("favicon.ico")
-copyFile("unlicense.svg")
 
 
 function clean() {
