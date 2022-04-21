@@ -9,7 +9,7 @@
 - [x] Compile CSS with Less
 - [ ] Add color [noise](https://stackoverflow.com/questions/4011113/can-you-add-noise-to-a-css3-gradient)
 - [ ] Add CRT frame effect
-- [ ] Fork PeriodicTableJSON.json
+- [x] Fork PeriodicTableJSON.json
 
 ## NEXT:
 ### Radiometric game
@@ -20,3 +20,5 @@
 - [ ] Find compound data source
 
 ### Word game
+- [ ] Find list words composed of element symbols
+- [ ] Filter list to 4 symbols and randomize

@@ -19,9 +19,9 @@ class Radiometric {
     this.height = 19
     this.space = 23
     this.radius = 12
-    this.leftOffset = svgWidth*0.01171875 // 12
-    this.arrowOffset = svgWidth*0.03125 // 32
-    this.rightOffset = svgWidth*0.1328125 // 136
+    this.leftOffset = svgWidth*0.01171875
+    this.arrowOffset = svgWidth*0.03125
+    this.rightOffset = svgWidth*0.1328125
     this.x = svgWidth - svgPad - Math.log10(halflife)*(svgWidth - 2*svgPad)/bins - this.width/2
   }
 }
