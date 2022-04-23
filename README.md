@@ -20,7 +20,7 @@
 - [ ] Find compound data source
 
 ### Word game
-- [ ] Find list of words composed of element symbols
+- [x] Find list of words composed of element symbols
 - [ ] Filter list to 4 symbols and randomize
 - [ ] Make symbol placeholders for word
 - [ ] Clicking an element adds it to the next open space
