@@ -1,0 +1,6 @@
+[submodule "Periodic-Table-JSON"]
+	path = Periodic-Table-JSON
+	url = https://github.com/jessetemp/Periodic-Table-JSON.git
+[submodule "periodic-table-words"]
+	path = periodic-table-words
+	url = https://github.com/jessetemp/periodic-table-words.git

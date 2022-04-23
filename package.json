@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "node ./src/index.js",
+    "build": "node ./src/index.js && lessc ./src/css/main.less ./dist/css/main.css",
     "serve": "http-server ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "http-server": "^14.1.0",
+    "less": "^4.1.2",
     "nunjucks": "^3.2.3"
   }
 }

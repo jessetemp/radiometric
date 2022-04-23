@@ -2,18 +2,15 @@ import nunjucks from 'nunjucks'
 import fs from 'fs'
 import * as timeline from './scripts/timeline.js'
 
-const ELEMENTS = JSON.parse(fs.readFileSync('./src/data/PeriodicTableJSON.json')).elements
+const ELEMENTS = JSON.parse(fs.readFileSync('./Periodic-Table-JSON/PeriodicTableJSON.json')).elements
 const YEAR = new Date().getFullYear()
 
 clean()
-createFolder("./dist")
+createFolder("./dist/css")
 createMain()
 create404()
-copyFolderContents('css')
 copyFolderContents('fonts')
-// copyFolderContents('scripts')
 copyFile("favicon.ico")
-copyFile("unlicense.svg")
 
 
 function clean() {
