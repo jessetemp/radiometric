@@ -8,7 +8,7 @@
 - [ ] **~~Get user feedback~~** Thanks for nothing reddit. Try again elsewhere I guess
 - [x] Compile CSS with Less
 - [ ] Add color [noise](https://stackoverflow.com/questions/4011113/can-you-add-noise-to-a-css3-gradient)
-- [ ] Add CRT frame effect
+- [ ] ~~Add CRT frame effect~~ Too crowded on mobile
 - [x] Fork PeriodicTableJSON.json
 
 ## NEXT:
