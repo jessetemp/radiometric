@@ -1,55 +1,6 @@
 {% extends "../index.njk" %}
 
 {% block main %}
-  <div id="timeline">
-    <svg viewBox="0,0,{{t.svgWidth}},{{t.svgHeight}}">
-      <defs>
-        {% for method in t.methods %}
-          <linearGradient id="{{method.name}}">
-            <stop class="{{method.fromClass}} {{method.fromElement}}" offset="25%" />
-            <stop class="{{method.toClass}} {{methos.toElement}}" offset="75%" />
-          </linearGradient>
-        {% endfor %}
-      </defs>
-      <g>
-        <line x1="{{t.svgPad}}" y1="{{t.svgHeight - t.svgTicTop}}"
-          x2="{{t.svgWidth - t.svgPad}}"
-          y2="{{t.svgHeight - t.svgTicTop}}" />
-        {% for tic in t.tics %}
-          <line x1="{{tic}}" y1="{{t.svgHeight - t.svgTicTop}}"
-            x2="{{tic}}" y2="{{t.svgHeight - t.svgTicBottom}}" />
-        {% endfor %}
-      </g>
-      <g>
-        {% for tic in t.tics %}
-          <text x="{{tic - 13}}" y="{{t.svgHeight - 2}}" class="axis">
-            10<tspan class="super" dy="-5">{{t.bins - loop.index0}}</tspan>
-          </text>
-        {% endfor %}
-      </g>
-      <g>
-        {% for method in t.methods %}
-          <g class="range">
-            <rect x="{{method.x}}" y="{{method.space * loop.index0}}" 
-              width="{{method.width}}" height="{{method.height}}"
-              rx="{{method.radius}}" fill="url(#{{method.name}})"
-              class="{{method.fromElement.toLowerCase()}} {{method.toElement.toLowerCase()}}" />
-            <text x="{{method.x + method.leftOffset}}" y="{{method.space * loop.index0 + 15}}" class ="label">
-              {{ method.fromSymbol }}
-            </text>
-            <text x="{{method.x/2 + method.arrowOffset}}" y="{{method.space * loop.index0 + 15}}" class ="arrow"
-              transform="scale(2, 1)">
-              &rarr;
-            </text>
-            <text x="{{method.x + method.rightOffset}}" y="{{method.space * loop.index0 + 15}}" class ="label">
-              {{ method.toSymbol }}
-            </text>
-          </g>
-        {% endfor %}
-      </g>
-    </svg>
-  </div>
-
   <div class="table">
     {% for element in elements %}
       <div class="{{'element '}}
@@ -74,7 +25,30 @@
       </div>
     {% endfor %}
     <div class="spacer-a"></div>
-    <div class="spacer-b"></div>
+    <div class="spacer-b">
+      <div id="word">
+        <div class="word-symbol">
+          <div class="word-symbol-inner">
+            <h1>Ac</h1>
+          </div>
+        </div>
+        <div class="word-symbol">
+          <div class="word-symbol-inner">
+            <h1>Ce</h1>
+          </div>
+        </div>
+        <div class="word-symbol">
+          <div class="word-symbol-inner">
+            <h1>Pt</h1>
+          </div>
+        </div>
+        <div class="word-symbol">
+          <div class="word-symbol-inner">
+            <h1>S</h1>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="element lanthanide"></div>
     <div class="element actinide"></div>
     <div class="spacer-c"></div>
