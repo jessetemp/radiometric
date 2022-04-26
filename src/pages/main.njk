@@ -1,6 +1,23 @@
 {% extends "../index.njk" %}
 
 {% block main %}
+  <div class="grid">
+    {% for row in range(1,7) %}
+      <div class="row row-{{row}}">
+        {% for box in range(1,5) %}
+          <div class="cell">
+            <h1 class="symbol"></h1>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <div class="cell delete">
+      <h1 class="symbol">&#9003;</h1>
+    </div>
+    <div class="cell enter">
+      <h1 class="symbol">&crarr;</h1>
+    </div>
+  </div>
   <div class="table">
     {% for element in elements %}
       <div class="{{'element '}}
@@ -26,28 +43,6 @@
     {% endfor %}
     <div class="spacer-a"></div>
     <div class="spacer-b">
-      <div id="word">
-        <div class="word-symbol">
-          <div class="word-symbol-inner">
-            <h1>Ac</h1>
-          </div>
-        </div>
-        <div class="word-symbol">
-          <div class="word-symbol-inner">
-            <h1>Ce</h1>
-          </div>
-        </div>
-        <div class="word-symbol">
-          <div class="word-symbol-inner">
-            <h1>Pt</h1>
-          </div>
-        </div>
-        <div class="word-symbol">
-          <div class="word-symbol-inner">
-            <h1>S</h1>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="element lanthanide"></div>
     <div class="element actinide"></div>

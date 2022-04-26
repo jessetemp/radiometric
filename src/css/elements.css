@@ -1,10 +1,13 @@
-.table {
+body {
   --height: clamp(2.8rem, 6vw, 4.6rem);
   --width: clamp(20px, 4.7vw, 62px);
-  --pad: clamp(2px, 0.2vw, 4px);
+  --pad: clamp(2px, 0.3vw, 4px);
   --gap: clamp(2px, 0.4vw, 5px);
   --font: clamp(0.4rem, 2vw, 1.5rem);
+  --border: clamp(1.5px, 0.2vw, 2.5px);
+}
 
+.table {
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-template-areas:
@@ -19,18 +22,26 @@
     'sc sc  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
     'sc sc  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .';
   gap: var(--gap);
+  margin-top: auto;
 }
 
-#word {
+.grid {
+  margin-left: calc(3 * (var(--width) + var(--gap)));
+  margin-bottom: var(--gap);
+}
+
+.row {
   display: flex;
   flex-direction: row;
-  margin-left: calc(var(--width) + var(--gap));
-  margin-top: calc(var(--height)/2);
+  margin-top: calc(var(--gap));
 }
 
-.word-symbol {
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 6px;
-  border: var(--pad) #aaa solid;
+  border: var(--border) #aaa solid;
   opacity: 80%;
   transition: opacity 300ms ease;
   height: calc(var(--height));
@@ -38,30 +49,43 @@
   margin-right: calc(var(--gap));
 }
 
-.word-symbol-inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  content: "";
-  background-color: #222;
-  border-radius: 4px;
-  height: calc(var(--height) - 2* var(--pad));
-  width: calc(2 * var(--width) + var(--gap) - 2* var(--pad));
+.delete, .enter {
+  border: var(--border) #333 solid;
+  background-color: #333;
+  margin-left: calc((var(--width) + var(--gap))* 10)
 }
 
-.word-symbol h1 {
+.delete {
+  font-size: 80%;
+  margin-top: calc(0px - 5.5 * (var(--height) + var(--gap)) + var(--gap));
+}
+
+.enter {
+  margin-top: calc(2 * var(--gap) + var(--height));
+}
+
+.symbol {
   white-space: nowrap;
   padding: 0;
   font-size: calc(2.5 * var(--font));
   text-shadow: 0.5px 0px 0.5px #000, -0.5px 0px 0.5px #000, 0px 0.5px 0.5px #000, 0px -0.5px 0.5px #000;
 }
 
+.delete .symbol {
+  font-size: calc(1.5 * var(--font));
+}
+
+@-moz-document url-prefix() {
+  .enter .symbol {
+    margin-bottom: 0.5rem;
+  }
+}
+
 .element {
    text-align: center;
-   counter-increment: el;
    padding: var(--pad);
    border-radius: 4px;
-   opacity: 66%;
+   opacity: 70%;
    transition: opacity 300ms ease;
    height: var(--height);
    width: var(--width);
