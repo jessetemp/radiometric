@@ -7,10 +7,12 @@ const YEAR = new Date().getFullYear()
 
 clean()
 createFolder("./dist/css")
+createFolder("./dist/scripts")
 createMain()
 create404()
 copyFolderContents('fonts')
 copyFile("favicon.ico")
+copyFile("scripts/main.js")
 
 
 function clean() {

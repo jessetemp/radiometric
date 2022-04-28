@@ -24,11 +24,11 @@
 - [x] Filter list to 4 symbols
 - [x] Make symbol placeholders for word
 - [x] Add backspace and enter buttons
-- [ ] Randomize word list (seeded for normal, random for unlimited)
 - [ ] Clicking an element adds it to the next open space
+- [ ] Pressing backspace deletes the most recent symbol
 - [ ] Backspace is disabled if the row is empty
 - [ ] Enter is disabled until the row is full
-- [ ] Pressing backspace deletes the most recent symbol
 - [ ] Pressing enter button checks word, displays results
 - [ ] Define styles for correct, partial, or incorrect
+- [ ] Randomize word list (seeded for normal, random for unlimited)
 - [ ] Add instructions on page load

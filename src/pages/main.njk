@@ -4,8 +4,8 @@
   <div class="grid">
     {% for row in range(1,7) %}
       <div class="row row-{{row}}">
-        {% for box in range(1,5) %}
-          <div class="cell">
+        {% for cell in range(1,5) %}
+          <div class="cell cell-{{cell}}">
             <h1 class="symbol"></h1>
           </div>
         {% endfor %}
