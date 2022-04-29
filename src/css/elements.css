@@ -49,18 +49,18 @@ body {
   margin-right: calc(var(--gap));
 }
 
-.delete, .enter {
+#backspace, #enter {
   border: var(--border) #333 solid;
   background-color: #333;
   margin-left: calc((var(--width) + var(--gap))* 10)
 }
 
-.delete {
+#backspace {
   font-size: 80%;
   margin-top: calc(0px - 5.5 * (var(--height) + var(--gap)) + var(--gap));
 }
 
-.enter {
+#enter {
   margin-top: calc(2 * var(--gap) + var(--height));
 }
 
@@ -71,12 +71,12 @@ body {
   text-shadow: 0.5px 0px 0.5px #000, -0.5px 0px 0.5px #000, 0px 0.5px 0.5px #000, 0px -0.5px 0.5px #000;
 }
 
-.delete .symbol {
+#backspace .symbol {
   font-size: calc(1.5 * var(--font));
 }
 
 @-moz-document url-prefix() {
-  .enter .symbol {
+  #enter .symbol {
     margin-bottom: 0.5rem;
   }
 }
@@ -141,61 +141,67 @@ body {
   grid-area: sc;
 }
 
-.nonmetal {
+.diatomic-nonmetal {
   background-color: #6694ff;
-  stop-color: #6694ff;
+  border-color: #6694ff;
 }
 
 .alkali-metal {
   background-color: #ff8e6c;
-  stop-color: #ff8e6c;
+  border-color: #ff8e6c;
 }
 
-.alkaline-earth {
+.alkaline-earth-metal {
   background-color: #ffc46c;
-  stop-color: #ffc46c;
+  border-color: #ffc46c;
 }
 
 .transition-metal{
   background-color: #ffef6c;
-  stop-color: #ffef6c;
+  border-color: #ffef6c;
 }
 
 .post-transition-metal {
   background-color: #d0ff68;
-  stop-color: #d0ff68;
+  border-color: #d0ff68;
 }
 
 .polyatomic-nonmetal {
   background-color: #7ad3ff;
-  stop-color: #7ad3ff;
+  border-color: #7ad3ff;
 }
 
 .metalloid {
   background-color: #8fffa0;
-  stop-color: #8fffa0;
+  border-color: #8fffa0;
 }
 
 .noble-gas {
   background-color: #ac9aff;
-  stop-color: #ac9aff;
+  border-color: #ac9aff;
 }
 
 .unknown {
   background-color: #efefef;
-  stop-color: #efefef;
+  border-color: #efefef;
 }
 
-.lanthanide {
+.lanthanides {
   grid-area: l;
-  background-color: #ffbce9;
-  stop-color: #ffbce9;
 }
 
-.actinide {
+.actinides {
   grid-area: a;
+}
+
+.lanthanides, .lanthanide {
+  background-color: #ffbce9;
+  border-color: #ffbce9;
+}
+
+.actinides, .actinide {
   background-color: #ff79cc;
-  stop-color: #ff79cc;
+  border-color: #ff79cc;
 }
 
 .element:nth-child(n + 57):nth-child(-n + 71) {
