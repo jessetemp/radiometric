@@ -6,13 +6,13 @@ const ELEMENTS = JSON.parse(fs.readFileSync('./Periodic-Table-JSON/PeriodicTable
 const YEAR = new Date().getFullYear()
 
 clean()
-createFolder("./dist/css")
-createFolder("./dist/scripts")
+createFolders(["css", "scripts", "fonts", "data"])
 createMain()
 create404()
-copyFolderContents('fonts')
 copyFile("favicon.ico")
+copyFile('fonts/merriweather-v28-latin-regular.woff')
 copyFile("scripts/main.js")
+copyFile("../periodic-table-words/words-with-4-symbols.txt", "data/words.txt")
 
 
 function clean() {
@@ -21,26 +21,12 @@ function clean() {
   }
 }
 
-function createFolder(path) {
-  if (!fs.existsSync(path)) {
-    fs.mkdirSync(path, { recursive: true })
-  }
-}
-
-function copyFolderContents(folder) {
-  let src = `./src/${folder}`
-  let dist = `./dist/${folder}`
-
-  createFolder(dist)
-
-  const dir = fs.opendirSync(src)
-  let file
-  while((file = dir.readSync())) {
-    let name = file?.name
-    fs.copyFileSync(`${src}/${name}`, `${dist}/${name}`)
-    console.log(`Copied ${name}`)
-  }
-  dir.closeSync()
+function createFolders(paths) {
+  paths.forEach((path) => {
+    if (!fs.existsSync(path)) {
+      fs.mkdirSync(`./dist/${path}`, { recursive: true })
+    }
+  })
 }
 
 function create404() {
@@ -48,7 +34,6 @@ function create404() {
     title: "404",
     year: YEAR
   })
-
   fs.writeFileSync('./dist/404.html', render)
   console.log('Compiled 404')
 }
@@ -59,12 +44,11 @@ function createMain() {
     t: timeline,
     year: YEAR
   })
-
   fs.writeFileSync('./dist/index.html', render)
   console.log('Compiled main')
 }
 
-function copyFile(file) {
-  fs.copyFileSync(`./src/${file}`, `./dist/${file}`)
-  console.log(`Copied ${file}`) 
+function copyFile(srcFile, distFile=srcFile) {
+  fs.copyFileSync(`./src/${srcFile}`, `./dist/${distFile}`)
+  console.log(`Copied ${srcFile} to ${distFile}`) 
 }

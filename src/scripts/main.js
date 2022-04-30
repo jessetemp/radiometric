@@ -1,6 +1,7 @@
 const elements = document.getElementsByClassName('element')
 const backspace = document.getElementById('backspace')
 const enter = document.getElementById('enter')
+const words = 
 
 class Cell {
   constructor() {
@@ -13,20 +14,34 @@ class Cell {
 
   addSymbol(element) {
     if (this.col < 4) {
+      console.log('add')
       const category = element.classList[2] // magic
       this.element.classList.add(category)
       const symbol = element.children[1].innerText // magic
       this.element.children[0].innerText = symbol // magic
       this.col++
+      this.enable('backspace')
     }
+    if (this.col == 4) this.enable('enter')
   }
 
   removeSymbol() {
     if (this.col > 0) {
+      console.log('remove')
       this.col--
       this.element.className = "cell"
       this.element.children[0].innerText = ""
+      this.disable('enter')
     }
+    if (this.col == 0) this.disable('backspace')
+  }
+
+  disable(id) {
+    document.getElementById(id).className = "cell disabled"
+  }
+
+  enable(id) {
+    document.getElementById(id).className = "cell"
   }
 }
 

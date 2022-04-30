@@ -52,7 +52,7 @@ body {
 #backspace, #enter {
   border: var(--border) #333 solid;
   background-color: #333;
-  margin-left: calc((var(--width) + var(--gap))* 10)
+  margin-left: calc((var(--width) + var(--gap))* 10);
 }
 
 #backspace {
@@ -62,6 +62,16 @@ body {
 
 #enter {
   margin-top: calc(2 * var(--gap) + var(--height));
+}
+
+#backspace:hover, #enter:hover {
+  opacity: 100%;
+  transition: opacity 50ms ease;
+}
+
+.disabled, #backspace:hover.disabled, #enter:hover.disabled {
+  opacity: 20%;
+  transition: opacity 300ms ease;
 }
 
 .symbol {
