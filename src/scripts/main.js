@@ -1,7 +1,7 @@
 const elements = document.getElementsByClassName('element')
 const backspace = document.getElementById('backspace')
 const enter = document.getElementById('enter')
-const words = 
+// const words = 
 
 class Cell {
   constructor() {
