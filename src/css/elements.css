@@ -74,6 +74,12 @@ body {
   transition: opacity 300ms ease;
 }
 
+.wrong {
+  opacity: 0%;
+  transition-delay: 300ms;
+  transition: opacity 1s ease;
+}
+
 .symbol {
   white-space: nowrap;
   padding: 0;

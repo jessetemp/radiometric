@@ -19,12 +19,15 @@ This began as a diagram that mapped elements in the periodic table to a radiomet
 - [x] Clicking an element adds it to the next open space
 - [x] Pressing backspace deletes the most recent symbol
 - [x] Backspace is disabled if the row is empty
-- [ ] Load and shuffle the word list
-- [ ] Pressing enter button checks word, displays results
-- [x] Enter is disabled until the row is full
+- [x] Load and shuffle the word list
+- [x] Pressing enter button checks word, displays results
+- [x] Enter is visually disabled until the row is full
+- [ ] Enter click event is disabled until row is full
+- [ ] Hide colors until word is checked
 - [ ] Define styles for correct, partial, or incorrect
 - [ ] Define opacity in bg color instead of element
 - [ ] Add instructions on page load
+- [ ] Adjust color palette
 
 ### Compound game
 - [ ] Find compound data source
