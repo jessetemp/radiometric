@@ -20,7 +20,7 @@
   </div>
   <div class="table">
     {% for element in elements %}
-      <div class="element {{element.name.toLowerCase()}} {{element.category}}">
+      <div id="{{element.name.toLowerCase()}}" class="element {{element.category}}">
         <p class="element-number">{{element.number}}</p>
         <h3 class="element-symbol">{{element.symbol}}</h3>
         <p class="element-name">{{element.name}}</p>

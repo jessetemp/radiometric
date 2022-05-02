@@ -14,10 +14,9 @@ class Cell {
   addSymbol(element) {
     if (this.col < 4) {
       console.log('add')
-      const category = element.classList[2] // magic
-      this.element.classList.add(category)
-      const symbol = element.children[1].innerText // magic
-      this.element.children[0].innerText = symbol // magic
+      this.element.classList.add(element.id)
+      const symbol = element.children[1].innerText
+      this.element.children[0].innerText = symbol
       this.col++
       this.enable('backspace')
     }
@@ -82,10 +81,31 @@ async function wordOfTheDay() {
 
 function checkWord(symbols) {
   const cells = document.getElementById(`row-${cell.row}`).children
+
+  // loop through symbols and add 'right' class
   for (let n = 0; n < 4; n++) {
-    console.log(`${symbols[n]} - ${cells[n].children[0].innerText}`)
-    if (symbols[n] != cells[n].children[0].innerText) {
-      cells[n].classList.add('wrong')
+    let element = document.getElementById(cells[n].classList[1])
+    let category = element.classList[1]
+    if (symbols[n] == cells[n].children[0].innerText) {
+      cells[n].classList.add(category)
+      cells[n].classList.remove('misplaced')
+      element.classList.add('right')
+    }
+  }
+  // loop through symbols and add 'misplaced' or 'wrong' if never 'right'
+  for (let n = 0; n < 4; n++) {
+    let element = document.getElementById(cells[n].classList[1])
+    let category = element.classList[1]
+    if (symbols.includes(cells[n].children[0].innerText)) {
+      if (symbols[n] != cells[n].children[0].innerText) {
+        cells[n].classList.add(category)
+        cells[n].classList.add('misplaced')
+        if (!element.classList.value.includes('right')) {
+          element.classList.add('misplaced')
+        }
+      }
+    } else {
+      element.classList.add('wrong')
     }
   }
   cell.row++
