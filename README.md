@@ -22,11 +22,13 @@ This began as a diagram that mapped elements in the periodic table to a radiomet
 - [x] Load and shuffle the word list
 - [x] Pressing enter button checks word, displays results
 - [x] Enter is visually disabled until the row is full
-- [ ] Enter click event is disabled until row is full
-- [ ] Hide colors until word is checked
-- [ ] Define styles for correct, partial, or incorrect
+- [x] Enter click event is disabled until row is full
+- [x] Hide colors until word is checked
+- [x] Define styles for correct and incorrect
+- [ ] Fix misplaced cell transitions
 - [ ] Define opacity in bg color instead of element
 - [ ] Add instructions on page load
+- [ ] Consider hints for partially correct symbols
 - [ ] Adjust color palette
 
 ### Compound game
