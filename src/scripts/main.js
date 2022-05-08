@@ -9,45 +9,44 @@ class Cell {
   }
 
   get id() { return `cell-${this.row}-${this.col}` }
-  get element() { return document.getElementById(this.id) }
+  get cell() { return document.getElementById(this.id) }
+  get cellBack() { return this.cell.children[0] }
+  get cellFront() { return this.cell.children[1] }
 
   addSymbol(element) {
     if (this.col < 4) {
       console.log('add')
-      this.element.classList.add(element.id)
+      this.cell.classList.add(element.id)
       const symbol = element.children[1].innerText
-      this.element.children[0].innerText = symbol
+      this.cellFront.children[0].innerText = symbol
       this.col++
-      this.enable('backspace')
+      enable('backspace')
     }
-    if (this.col == 4) this.enable('enter')
+    if (this.col == 4) enable('enter')
   }
 
   removeSymbol() {
     if (this.col > 0) {
       console.log('remove')
       this.col--
-      this.clearSymbol(this.element)
-      this.disable('enter')
+      this.cell.className = "cell-front"
+      this.cellFront.children[0].innerText = ""
+      disable('enter')
     }
-    if (this.col == 0) this.disable('backspace')
+    if (this.col == 0) disable('backspace')
   }
 
-  clearSymbol(element) {
-    element.className = "cell"
-    element.children[0].innerText = ""
-  }
-
-  disable(id) {
-    document.getElementById(id).className = "cell disabled"
-  }
-
-  enable(id) {
-    document.getElementById(id).className = "cell"
-  }
 }
 
 const cell = new Cell();
+
+function disable(id) {
+  document.getElementById(id).classList.add("disabled")
+}
+
+function enable(id) {
+  document.getElementById(id).classList.remove("disabled")
+}
 
 Array.from(elements).forEach(element => {
   element.addEventListener('click', () => {
@@ -86,7 +85,8 @@ function checkWord(symbols) {
   for (let n = 0; n < 4; n++) {
     let element = document.getElementById(cells[n].classList[1])
     let category = element.classList[1]
-    if (symbols[n] == cells[n].children[0].innerText) {
+    let cellFront = cells[n].children[1]
+    if (symbols[n] == cellFront.children[0].innerText) {
       cells[n].classList.add(category)
       cells[n].classList.remove('misplaced')
       element.classList.add('right')
@@ -96,8 +96,9 @@ function checkWord(symbols) {
   for (let n = 0; n < 4; n++) {
     let element = document.getElementById(cells[n].classList[1])
     let category = element.classList[1]
-    if (symbols.includes(cells[n].children[0].innerText)) {
-      if (symbols[n] != cells[n].children[0].innerText) {
+    let cellFront = cells[n].children[1]
+    if (symbols.includes(cellFront.children[0].innerText)) {
+      if (symbols[n] != cellFront.children[0].innerText) {
         cells[n].classList.add(category)
         cells[n].classList.add('misplaced')
         if (!element.classList.value.includes('right')) {
@@ -110,8 +111,8 @@ function checkWord(symbols) {
   }
   cell.row++
   cell.col = 0
-  cell.disable('backspace')
-  cell.disable('enter')
+  disable('backspace')
+  disable('enter')
 }
 
 function getSymbols(word) {

@@ -58,8 +58,11 @@ function copyFile(srcFile, distFile=srcFile) {
 function createShuffledWordList(srcFile, distFile) {
   let words = fs.readFileSync(srcFile, 'utf8').toString().split('\n')
   
+  let seed = 1
   for (let i = words.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    let random = Math.sin(seed++) * 10000
+    random -= Math.floor(random)
+    const j = Math.floor(random * (i + 1));
     [words[i], words[j]] = [words[j], words[i]];
   }
   let file = fs.createWriteStream(distFile)

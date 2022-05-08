@@ -37,22 +37,47 @@ body {
 }
 
 .cell {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   border-radius: 6px;
-  border: var(--border) #aaa solid;
-  opacity: 70%;
-  transition: opacity 300ms ease;
+  border: var(--border) #aaaaaa99 solid;
+  opacity: 1;
   height: calc(var(--height));
   width: calc(2 * var(--width) + var(--gap));
   margin-right: calc(var(--gap));
+}
+
+.cell-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  border: var(--border) #00000000 solid;
+  box-sizing: content-box;
+  margin: calc(0px - var(--border));
+  opacity: 0;
+  background-image: repeating-linear-gradient(
+    45deg, #00000000, #00000000 10px, #38ff0b99 10px, #38ff0b99 20px);
+}
+
+.cell-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #backspace, #enter {
   border: var(--border) #333 solid;
   background-color: #333;
   margin-left: calc((var(--width) + var(--gap))* 10);
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 2s ease;
 }
 
 #backspace {
@@ -65,19 +90,20 @@ body {
 }
 
 #backspace:hover, #enter:hover {
-  opacity: 100%;
+  opacity: 1;
   transition: opacity 50ms ease;
 }
 
-.disabled, #backspace:hover.disabled, #enter:hover.disabled {
-  opacity: 30%;
-  transition: opacity 300ms ease;
+#backspace.disabled, #enter.disabled, #backspace:hover.disabled, #enter:hover.disabled {
+  opacity: 0.3;
+  transition: opacity 2s ease;
   pointer-events: none;
 }
 
 .symbol {
   white-space: nowrap;
   padding: 0;
+  color: var(--near-white);
   font-size: calc(2.5 * var(--font));
   text-shadow: 0.5px 0px 0.5px #000, -0.5px 0px 0.5px #000, 0px 0.5px 0.5px #000, 0px -0.5px 0.5px #000;
 }
@@ -91,22 +117,26 @@ body {
     margin-bottom: 0.5rem;
   }
 }
+/* .cell:hover {
+  opacity: 0.7;
+  transition: opacity 50ms ease;
+} */
 
 .element {
-   text-align: center;
-   padding: var(--pad);
-   border-radius: 4px;
-   opacity: 70%;
-   height: var(--height);
-   width: var(--width);
-   transition: opacity 300ms, background-color 1s, border-color 1s, background-image 1s;
- }
-
- .element:hover {
-   opacity: 100%;
-   transition: opacity 50ms ease;
- }
- 
+  text-align: center;
+  padding: var(--pad);
+  border-radius: 4px;
+  opacity: 0.7;
+  height: var(--height);
+  width: var(--width);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
+}
+  
+/* .element:hover {
+  opacity: 1;
+  transition: opacity 50ms ease;
+} */
+  
 .element-symbol, .element-number, .element-name, .atomic-mass {
   white-space: nowrap;
   margin: 0;
@@ -152,147 +182,161 @@ body {
   grid-area: sc;
 }
 
-.diatomic-nonmetal {
+/* .diatomic-nonmetal {
   background-color: #6694ff;
   border-color: #6694ff;
-}
-.misplaced.diatomic-nonmetal {
+} */
+/* .element.misplaced.diatomic-nonmetal {
   background-image: repeating-linear-gradient(
     45deg, #6694ff99, #6694ff99 10px, #6694ffff 10px, #6694ffff 20px)
-}
+} */
 .cell.misplaced.diatomic-nonmetal {
   background-image: repeating-linear-gradient(
-    45deg, #6694ff00, #6694ff00 10px, #6694ffff 10px, #6694ffff 20px)
+    45deg, #6694ff00, #6694ff00 10px, #6694ffff 10px, #6694ffff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.alkali-metal {
+/* .alkali-metal {
   background-color: #ff8e6c;
   border-color: #ff8e6c;
-}
-.misplaced.alkali-metal {
+} */
+/* .element.misplaced.alkali-metal {
   background-image: repeating-linear-gradient(
     45deg, #ff8e6c99, #ff8e6c99 10px, #ff8e6cff 10px, #ff8e6cff 20px)
-}
+} */
 .cell.misplaced.alkali-metal {
   background-image: repeating-linear-gradient(
-    45deg, #ff8e6c00, #ff8e6c00 10px, #ff8e6cff 10px, #ff8e6cff 20px)
+    45deg, #ff8e6c00, #ff8e6c00 10px, #ff8e6cff 10px, #ff8e6cff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.alkaline-earth-metal {
+/* .alkaline-earth-metal {
   background-color: #ffc46c;
   border-color: #ffc46c;
-}
-.misplaced.alkaline-earth-metal {
+} */
+/* .element.misplaced.alkaline-earth-metal {
   background-image: repeating-linear-gradient(
     45deg, #ffc46c99, #ffc46c99 10px, #ffc46cff 10px, #ffc46cff 20px)
-}
+} */
 .cell.misplaced.alkaline-earth-metal {
   background-image: repeating-linear-gradient(
-    45deg, #ffc46c00, #ffc46c00 10px, #ffc46cff 10px, #ffc46cff 20px)
+    45deg, #ffc46c00, #ffc46c00 10px, #ffc46cff 10px, #ffc46cff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.transition-metal{
+/* .transition-metal{
   background-color: #ffef6c;
   border-color: #ffef6c;
-}
-.misplaced.transition-metal {
+} */
+/* .element.misplaced.transition-metal {
   background-image: repeating-linear-gradient(
     45deg, #ffef6c99, #ffef6c99 10px, #ffef6cff 10px, #ffef6cff 20px)
-}
+} */
 .cell.misplaced.transition-metal {
   background-image: repeating-linear-gradient(
-    45deg, #ffef6c00, #ffef6c00 10px, #ffef6cff 10px, #ffef6cff 20px)
+    45deg, #ffef6c00, #ffef6c00 10px, #ffef6cff 10px, #ffef6cff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.post-transition-metal {
+/* .post-transition-metal {
   background-color: #d0ff68;
   border-color: #d0ff68;
-}
-.misplaced.post-transition-metal {
+} */
+/* .element.misplaced.post-transition-metal {
   background-image: repeating-linear-gradient(
     45deg, #d0ff6899, #d0ff6899 10px, #d0ff68ff 10px, #d0ff68ff 20px)
-}
+} */
 .cell.misplaced.post-transition-metal {
   background-image: repeating-linear-gradient(
-    45deg, #d0ff6800, #d0ff6800 10px, #d0ff68ff 10px, #d0ff68ff 20px)
+    45deg, #d0ff6800, #d0ff6800 10px, #d0ff68ff 10px, #d0ff68ff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.polyatomic-nonmetal {
+/* .polyatomic-nonmetal {
   background-color: #7ad3ff;
   border-color: #7ad3ff;
-}
-.misplaced.polyatomic-nonmetal {
+} */
+/* .element.misplaced.polyatomic-nonmetal {
   background-image: repeating-linear-gradient(
     45deg, #7ad3ff99, #7ad3ff99 10px, #7ad3ffff 10px, #7ad3ffff 20px)
-}
+} */
 .cell.misplaced.polyatomic-nonmetal {
   background-image: repeating-linear-gradient(
-    45deg, #7ad3ff00, #7ad3ff00 10px, #7ad3ffff 10px, #7ad3ffff 20px)
+    45deg, #7ad3ff00, #7ad3ff00 10px, #7ad3ffff 10px, #7ad3ffff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.metalloid {
+/* .metalloid {
   background-color: #8fffa0;
   border-color: #8fffa0;
-}
-.misplaced.metalloid {
+} */
+/* .element.misplaced.metalloid {
   background-image: repeating-linear-gradient(
     45deg, #8fffa099, #8fffa099 10px, #8fffa0ff 10px, #8fffa0ff 20px)
-}
+} */
 .cell.misplaced.metalloid {
   background-image: repeating-linear-gradient(
-    45deg, #8fffa000, #8fffa000 10px, #8fffa0ff 10px, #8fffa0ff 20px)
+    45deg, #8fffa000, #8fffa000 10px, #8fffa0ff 10px, #8fffa0ff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
-
+/* 
 .noble-gas {
   background-color: #ac9aff;
   border-color: #ac9aff;
-}
-.misplaced.noble-gas {
+} */
+/* .element.misplaced.noble-gas {
   background-image: repeating-linear-gradient(
     45deg, #ac9aff99, #ac9aff99 10px, #ac9affff 10px, #ac9affff 20px)
-}
+} */
 .cell.misplaced.noble-gas {
   background-image: repeating-linear-gradient(
-    45deg, #ac9aff00, #ac9aff00 10px, #ac9affff 10px, #ac9affff 20px)
+    45deg, #ac9aff00, #ac9aff00 10px, #ac9affff 10px, #ac9affff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.unknown {
+/* .unknown {
   background-color: #efefef;
   border-color: #efefef;
-}
-.misplaced.unknown {
+} */
+/* .element.misplaced.unknown {
   background-image: repeating-linear-gradient(
     45deg, #efefef99, #efefef99 10px, #efefefff 10px, #efefefff 20px)
-}
+} */
 .cell.misplaced.unknown {
   background-image: repeating-linear-gradient(
-    45deg, #efefef00, #efefef00 10px, #efefefff 10px, #efefefff 20px)
+    45deg, #efefef00, #efefef00 10px, #efefefff 10px, #efefefff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
-.lanthanides, .lanthanide {
+/* .lanthanides, .lanthanide {
   background-color: #ffbce9;
   border-color: #ffbce9;
-}
-.misplaced.lanthanide {
+} */
+/* .element.misplaced.lanthanide {
   background-image: repeating-linear-gradient(
     45deg, #ffbce999, #ffbce999 10px, #ffbce9ff 10px, #ffbce9ff 20px)
-}
+} */
 .cell.misplaced.lanthanide {
   background-image: repeating-linear-gradient(
-    45deg, #ffbce900, #ffbce900 10px, #ffbce9ff 10px, #ffbce9ff 20px)
+    45deg, #ffbce900, #ffbce900 10px, #ffbce9ff 10px, #ffbce9ff 20px);
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
 }
 
 .actinides, .actinide {
-  background-color: #ff79cc;
-  border-color: #ff79cc;
+  /* background-color: #ff79cc; */
+  border-color: #ff79ccbb;
+  z-index: 2;
 }
-.misplaced.actinide {
+
+/* .element.misplaced.actinide {
   background-image: repeating-linear-gradient(
     45deg, #ff79cc99, #ff79cc99 10px, #ff79ccff 10px, #ff79ccff 20px)
-}
-.cell.misplaced.actinide {
+} */
+.cell.actinide .cell-back {
   background-image: repeating-linear-gradient(
-    45deg, #ff79cc00, #ff79cc00 10px, #ff79ccff 10px, #ff79ccff 20px)
+    45deg, #ff79cc00, #ff79cc00 10px, #ff79ccff 10px, #ff79ccff 20px);
+  border-color: #ff79ccff;
+  opacity: 0;
 }
 
 .lanthanides {
@@ -303,49 +347,52 @@ body {
   grid-area: a;
 }
 
-.element:nth-child(n + 57):nth-child(-n + 71) {
+/* .element:nth-child(n + 57):nth-child(-n + 71) {
   background-color: #ffbce9;
-}
+} */
 
 .element:nth-child(n + 57):nth-child(-n + 71) {
   grid-row: 9;
 }
 
-.element:nth-child(n + 89):nth-child(-n + 103) {
+/* .element:nth-child(n + 89):nth-child(-n + 103) {
   background-color: #ff79cc;
-}
+} */
 
 .element:nth-child(n + 89):nth-child(-n + 103) {
   grid-row: 10;
 }
 
-.right {
+/* .right {
   opacity: 100%;
-  transition: opacity 1s ease;
-}
+  transition: opacity 5s;
+} */
 
-.wrong, .wrong:hover {
+/* .wrong, .wrong:hover {
   opacity: 20%;
-  transition: opacity 1s;
+  transition: opacity 5s;
   pointer-events: none;
-}
+} */
 
-.misplaced {
-  background-image: repeating-linear-gradient(
-    45deg, #00000000, #00000000 10px, #000000ff 10px, #000000ff 20px);
-  opacity: 100%;
-  background-color: #00000000;
-  transition: opacity 300ms, background-color 1s, border-color 1s, background-image 1s;
-}
-
-.cell.misplaced {
-  opacity: 70%;
-  transition: opacity 300ms, background-color 1s, border-color 1s, background-image 1s;
-}
-
-.diatomic-nonmetal, .alkali-metal, .alkaline-earth-metal, .transition-metal,
+/* .diatomic-nonmetal, .alkali-metal, .alkaline-earth-metal, .transition-metal,
 .post-transition-metal, .polyatomic-nonmetal, .metalloid, .noble-gas,
 .unknown, .lanthanide, .actinide
 {
-  transition: opacity 300ms, background-color 1s, border-color 1s, background-image 1s;
+  transition: opacity 2s, background-color 5s, border-color 5s, background-image 5s;
+} */
+
+.element.misplaced{
+  opacity: 0.7;
+  background-color: #00000000;
+  transition: opacity 5s, background-color 5s, border-color 5s, background-image 5s;
+}
+
+.cell.misplaced {
+  transition: border-color 2s;
+  border-color: #00000000;
+}
+
+.cell.misplaced .cell-back{
+  opacity: 0.7;
+  transition: opacity 2s;
 }

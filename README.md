@@ -25,7 +25,8 @@ This began as a diagram that mapped elements in the periodic table to a radiomet
 - [x] Enter click event is disabled until row is full
 - [x] Hide colors until word is checked
 - [x] Define styles for correct and incorrect
-- [ ] Fix misplaced cell transitions
+- [x] Fix misplaced cell transitions
+- [ ] Fix everything that broke when fixing cell transition
 - [ ] Define opacity in bg color instead of element
 - [ ] Add instructions on page load
 - [ ] Consider hints for partially correct symbols

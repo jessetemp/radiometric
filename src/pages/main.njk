@@ -6,7 +6,10 @@
       <div id="row-{{row}}" class="row">
         {% for col in range(0,4) %}
           <div id="cell-{{row}}-{{col}}" class="cell">
-            <h1 class="symbol"></h1>
+            <div id="cell-back-{{row}}-{{col}}" class="cell-back"></div>
+            <div id="cell-front-{{row}}-{{col}}" class="cell-front">
+              <h1 class="symbol"></h1>
+            </div>
           </div>
         {% endfor %}
       </div>
