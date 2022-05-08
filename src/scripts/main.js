@@ -29,7 +29,7 @@ class Cell {
     if (this.col > 0) {
       console.log('remove')
       this.col--
-      this.cell.className = "cell-front"
+      this.cell.className = "cell"
       this.cellFront.children[0].innerText = ""
       disable('enter')
     }
@@ -88,6 +88,7 @@ function checkWord(symbols) {
     let cellFront = cells[n].children[1]
     if (symbols[n] == cellFront.children[0].innerText) {
       cells[n].classList.add(category)
+      cells[n].classList.add('right')
       cells[n].classList.remove('misplaced')
       element.classList.add('right')
     }

@@ -7,7 +7,7 @@ This began as a diagram that mapped elements in the periodic table to a radiomet
 - [x] Add radiometric examples from Wikipedia. Start and end ranges are approximated to one order of magnitude from half-life
 - [x] Add element labels to timeline
 - [x] Compile CSS with Less
-- [ ] Add color [noise](https://stackoverflow.com/questions/4011113/can-you-add-noise-to-a-css3-gradient) or other highlighting style
+- [x] Add color ~~[noise]~~(https://stackoverflow.com/questions/4011113/can-you-add-noise-to-a-css3-gradient) stripes for highlighting
 - [x] Fork PeriodicTableJSON.json
 - [ ] Create separate page for radiometric timeline
 
@@ -26,8 +26,11 @@ This began as a diagram that mapped elements in the periodic table to a radiomet
 - [x] Hide colors until word is checked
 - [x] Define styles for correct and incorrect
 - [x] Fix misplaced cell transitions
-- [ ] Fix everything that broke when fixing cell transition
-- [ ] Define opacity in bg color instead of element
+- [x] Fix everything that broke when fixing cell transition
+- [ ] Fix cell border alignment
+- [ ] Fade wrong cell symbols
+- [x] Define opacity in bg color instead of element (except stripes)
+- [ ] Add win/lose states
 - [ ] Add instructions on page load
 - [ ] Consider hints for partially correct symbols
 - [ ] Adjust color palette
