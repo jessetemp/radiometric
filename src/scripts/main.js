@@ -15,7 +15,6 @@ class Cell {
 
   addSymbol(element) {
     if (this.col < 4) {
-      console.log('add')
       this.cell.classList.add(element.id)
       const symbol = element.children[1].innerText
       this.cellFront.children[0].innerText = symbol
@@ -27,7 +26,6 @@ class Cell {
 
   removeSymbol() {
     if (this.col > 0) {
-      console.log('remove')
       this.col--
       this.cell.className = "cell"
       this.cellFront.children[0].innerText = ""
@@ -71,7 +69,6 @@ async function wordOfTheDay() {
     const response = await fetch('./data/words.txt')
     const data = await response.text()
     words = data.split('\n'); let word = words[index]
-    console.log(word)
     return word.replace(/(\r\n|\n|\r)/gm, "")
   } catch (error) {
     return console.log('ERROR:', error)
@@ -108,6 +105,7 @@ function checkWord(symbols) {
       }
     } else {
       element.classList.add('wrong')
+      cells[n].classList.add('wrong')
     }
   }
   cell.row++

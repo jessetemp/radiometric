@@ -1,11 +1,12 @@
-@height: clamp(2.8rem, 6vw, 4.6rem);
+@height: clamp(2.3rem, 5.5vw, 4.6rem);
 @width: clamp(20px, 4.7vw, 62px);
 @pad: clamp(2px, 0.3vw, 4px);
 @gap: clamp(2px, 0.4vw, 5px);
 @font: clamp(0.4rem, 2vw, 1.5rem);
-@font-number: clamp(0.35rem, 0.8vw, 0.7rem);
-@font-name: clamp(0.25rem, 0.58vw, 0.5rem);
-@border: clamp(1.5px, 0.2vw, 2.5px);
+@font-number: clamp(0.35rem, 0.9vw, 0.7rem);
+@font-name: clamp(0.25rem, 0.59vw, 0.5rem);
+@border: 1px;
+@line-height: clamp(0, 0.1vw, 1);
 
 .table {
   display: grid;
@@ -27,7 +28,7 @@
 
 .grid {
   margin-left: calc(3 * (@width + @gap));
-  margin-bottom: @gap;
+  margin-bottom: calc(1.5 * @height + 2 * @gap);
 }
 
 .row {
@@ -53,7 +54,7 @@
   border-radius: 6px;
   border: @border #00000000 solid;
   box-sizing: content-box;
-  margin: calc(0px - @border);
+  margin: -1px;
 }
 
 .cell-back {
@@ -86,13 +87,15 @@
   margin-top: calc(2 * @gap + @height);
 }
 
-#backspace:hover, #enter:hover {
-  opacity: 1;
-  transition: opacity 50ms ease;
+@media (hover: hover) {
+  #backspace:hover, #enter:hover {
+    opacity: 100%;
+    transition: opacity 50ms ease;
+  }
 }
 
 #backspace.disabled, #enter.disabled, #backspace:hover.disabled, #enter:hover.disabled {
-  opacity: 0.3;
+  opacity: 30%;
   transition: opacity 500ms;
   pointer-events: none;
 }
@@ -119,15 +122,17 @@
   text-align: center;
   padding: @pad;
   border-radius: 4px;
-  opacity: 0.7;
+  opacity: 70%;
   height: @height;
   width: @width;
   transition: opacity 500ms;
 }
-  
-.element:hover {
-  opacity: 1;
-  transition: opacity 50ms;
+
+@media (hover: hover) {
+  .element:hover {
+    opacity: 100%;
+    transition: opacity 50ms;
+  }
 }
   
 .element-symbol, .element-number, .element-name, .atomic-mass {
@@ -136,7 +141,7 @@
 }
  
 .element-symbol {
-  line-height: 1;
+  line-height: 0;
   display: inline-block;
   padding: 0;
   font-size: @font;
@@ -145,8 +150,9 @@
 .element-number {
   font-size: @font-number;
   text-align: left;
-  line-height: 1;
-  padding-bottom: @pad;
+  line-height: 0.9;
+  margin-bottom: -0.5rem;
+  padding-bottom: clamp(0px, 0.9vw, 12px);
 }
 
 .element-name, .atomic-mass {
@@ -155,6 +161,7 @@
 
 .element-name {
   display: none;
+  margin-top: -2px;
 } 
 
 @media screen and (min-width:880px){
@@ -195,9 +202,11 @@ each(@categories, {
     border-color: @value;
   }
 
-  .@{key}.element:hover, .@{key}.element.misplaced:hover {
-    background-color: @value;
-    transition: opacity 50ms;
+  @media (hover: hover) {
+    .@{key}.element:hover, .@{key}.element.misplaced:hover {
+      background-color: @value;
+      transition: opacity 50ms;
+    }
   }
 
   .@{key}.element.misplaced {
@@ -231,7 +240,7 @@ each(@categories, {
     transition: opacity 2s;
   }
 
-  .@{key}.cell.right {
+  .@{key}.cell.misplaced, .@{key}.cell.right {
     border-color: #00000000;
     transition: border-color 2s;
   }
@@ -241,6 +250,11 @@ each(@categories, {
     transition: background-color 2s;
   }
 })
+
+.cell.wrong .cell-front {
+  opacity: 30%;
+  transition: opacity 2s;
+}
 
 .lanthanides {
   grid-area: l;
