@@ -14,6 +14,20 @@
         {% endfor %}
       </div>
     {% endfor %}
+    <div id="answer" class="row">
+      {% for col in range(0,4) %}
+        <div id="answer-{{col}}"  class="cell">
+          <h1 class="symbol"></h1>
+        </div>
+      {% endfor %}
+    </div>
+    <div id="answer-name" class="row">
+      {% for col in range(0,4) %}
+        <div id="answer-name-{{col}}"  class="cell">
+          <p></p>
+        </div>
+      {% endfor %}
+    </div>
     <div id="backspace" class="cell disabled">
       <h1 class="symbol">&#9003;</h1>
     </div>
@@ -26,7 +40,7 @@
       <div id="{{element.name.toLowerCase()}}" class="element {{element.category}}">
         <p class="element-number">{{element.number}}</p>
         <h3 class="element-symbol">{{element.symbol}}</h3>
-        <p class="element-name">{{element.name}}</p>
+        <p id="{{element.symbol}}" class="element-name">{{element.name}}</p>
         {# <p class="element-category">{{element.category}}</p> #}
         <p class="atomic-mass">{{element.atomic_mass.toFixed(2)}}</p>
       </div>

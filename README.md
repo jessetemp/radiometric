@@ -30,7 +30,7 @@ This began as a diagram that mapped elements in the periodic table to a radiomet
 - [x] Fix cell border alignment (sort of)
 - [x] Fade wrong cell symbols
 - [x] Define opacity in bg color instead of element (except stripes)
-- [ ] Add win/lose states
+- [x] Add win/lose states
 - [ ] Add instructions on page load
 - [ ] Consider hints for partially correct symbols
 

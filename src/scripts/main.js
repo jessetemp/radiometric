@@ -6,6 +6,7 @@ class Cell {
   constructor() {
     this.row = 0
     this.col = 0
+    this.gameOver = false
   }
 
   get id() { return `cell-${this.row}-${this.col}` }
@@ -14,14 +15,16 @@ class Cell {
   get cellFront() { return this.cell.children[1] }
 
   addSymbol(element) {
-    if (this.col < 4) {
-      this.cell.classList.add(element.id)
-      const symbol = element.children[1].innerText
-      this.cellFront.children[0].innerText = symbol
-      this.col++
-      enable('backspace')
+    if (!this.gameOver) {
+      if (this.col < 4) {
+        this.cell.classList.add(element.id)
+        const symbol = element.children[1].innerText
+        this.cellFront.children[0].innerText = symbol
+        this.col++
+        enable('backspace')
+      }
+      if (this.col == 4) enable('enter')
     }
-    if (this.col == 4) enable('enter')
   }
 
   removeSymbol() {
@@ -68,7 +71,8 @@ async function wordOfTheDay() {
   try {
     const response = await fetch('./data/words.txt')
     const data = await response.text()
-    words = data.split('\n'); let word = words[index]
+    words = data.split('\n');
+    let word = words[index]
     return word.replace(/(\r\n|\n|\r)/gm, "")
   } catch (error) {
     return console.log('ERROR:', error)
@@ -78,6 +82,7 @@ async function wordOfTheDay() {
 function checkWord(symbols) {
   const cells = document.getElementById(`row-${cell.row}`).children
 
+  let rightCount = 0
   // loop through symbols and add 'right' class
   for (let n = 0; n < 4; n++) {
     let element = document.getElementById(cells[n].classList[1])
@@ -88,6 +93,7 @@ function checkWord(symbols) {
       cells[n].classList.add('right')
       cells[n].classList.remove('misplaced')
       element.classList.add('right')
+      rightCount++
     }
   }
   // loop through symbols and add 'misplaced' or 'wrong' if never 'right'
@@ -110,8 +116,23 @@ function checkWord(symbols) {
   }
   cell.row++
   cell.col = 0
+  cell.gameOver = 4 == rightCount
   disable('backspace')
   disable('enter')
+
+  if (cell.row == 6 && !cell.gameOver) {
+    reveal()
+  }
+}
+
+function reveal() {
+  for (let n = 0; n < 4; n++) {
+    setTimeout(
+      setTimeout(() => {
+        document.getElementById(`answer-${n}`).classList.add('revealed')
+        document.getElementById(`answer-name-${n}`).classList.add('revealed')
+      }, 1000 * (n + 1)), 1000)
+  }
 }
 
 function getSymbols(word) {
@@ -137,9 +158,12 @@ function isUpper(letter) {
 async function main() {
 
   const word = await wordOfTheDay()
-  console.log(word)
   const symbols = getSymbols(word)
-  console.log(symbols)
+  
+  for (let n = 0; n < 4; n++) {
+    document.getElementById(`answer-${n}`).children[0].innerText = symbols[n]
+    document.getElementById(`answer-name-${n}`).children[0].innerText = document.getElementById(symbols[n]).innerText
+  }
   
   enter.addEventListener('click', () => {
     checkWord(symbols)
