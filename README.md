@@ -2,8 +2,6 @@
 
 This began as a diagram that mapped elements in the periodic table to a radiometric dating timeline. Now the timeline has been replaced with a Wordle-like game where all of the words are composed of symbols in the periodic table. It's for people who enjoy Wordle, but hate how easy and pleasant it is.
 
-This began as a diagram that mapped elements in the periodic table to a radiometric dating timeline. Now the timeline has been replaced with a Wordle-like game.
-
 ## TODO:
 ### Table and Timeline
 - [x] Add radiometric examples from Wikipedia. Start and end ranges are approximated to one order of magnitude from half-life
