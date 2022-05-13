@@ -1,6 +1,8 @@
 # Periodle
 
-This began as a diagram that mapped elements in the periodic table to a radiometric dating timeline. Now the timeline has been replaced with a Wordle-like game where all of the words are composed of symbols in the periodic table. It's for people who enjoy Wordle, but hate how easygoing and pleasant it is.
+This began as a diagram that mapped elements in the periodic table to a radiometric dating timeline. Now the timeline has been replaced with a Wordle-like game where the words are composed of symbols from the periodic table. It's for people who enjoy Wordle, but hate how easygoing and pleasant it is.
+
+[periodle.com](http://periodle.com)
 
 ## TODO:
 ### Table and Timeline
@@ -31,6 +33,7 @@ This began as a diagram that mapped elements in the periodic table to a radiomet
 - [x] Fade wrong cell symbols
 - [x] Define opacity in bg color instead of element (except stripes)
 - [x] Add win/lose states
+- [ ] Add win/lose pizzazz
 - [ ] Add instructions on page load
 - [ ] Consider hints for partially correct symbols
 
